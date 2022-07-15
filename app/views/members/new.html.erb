@@ -1,0 +1,12 @@
+<h1>Member Form</h1>
+<%= form_for @member do |form| %>
+  <p><%= form.label :name %></p>
+  <p><%= form.text_field :name %></p>
+
+  <p ><%= form.label :website %></p>
+  <p><%= form.text_field :website %></p>
+
+  <p><%=collection_check_boxes(:member, :friend_ids, Member.all, :id, :name)%></p>
+
+  <p ><%= form.submit  %></p>
+<% end %>

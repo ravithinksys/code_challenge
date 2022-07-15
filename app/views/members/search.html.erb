@@ -1,0 +1,8 @@
+<h1>Members search for '<%=params[:key]%>'</h1>
+<br>
+
+<h1>Showing results .. </h1>
+<%@headings.each do |heading|%>
+<h1><%= heading.data%></h1>
+<h2><%= @member.show_relation(heading.member) %></h2>
+<%end%>

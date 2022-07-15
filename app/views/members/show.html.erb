@@ -1,0 +1,20 @@
+<h1>Member Profile</h1>
+<%= form_tag(search_member_path(@member), method: 'GET') do %>
+  <b>Search </b>
+  <%= text_field_tag :key %>
+<% end %>
+<br>
+<br>
+<b>Name :</b> <%=@member.name %> <br>
+<b>Website URL :</b> <%=@member.website %> <br>
+<b>Shortening :</b> <%=link_to short_url(@member.short_url)%> <br>
+<b>Website Headings :</b> <ul>
+            <% @member.headings.each do |heading| %>
+              <li><%=heading.data%></li>
+            <% end %>
+          </ul>
+<b>Friends :</b> <ul>
+            <% @member.friends.each do |friend| %>
+              <li><%=friend.name%></li>
+            <% end %>
+          </ul>

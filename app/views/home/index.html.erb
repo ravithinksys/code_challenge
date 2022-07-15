@@ -1,0 +1,36 @@
+<h1>Member List <%=link_to "Add Member", new_member_path, style: "float: right;" %></h1> 
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>website URL</th>
+			<th>shortening</th>
+			<th>website headings</th>
+			<th>friends</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@members.each do |member|%>
+			<tr>
+				<td><%=link_to member.name, member_path(member)%></td>
+				<td><%=member.website%></td>
+				<td><%=link_to short_url(member.short_url)%></td>
+				<td>
+					<ul>
+						<% member.headings.each do |heading| %>
+							<li><%=heading.data%></li>
+						<% end %>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<% member.friends.each do |friend| %>
+							<li><%=friend.name%></li>
+						<% end %>
+					</ul>
+				</td>
+			</tr>
+		<%end%>
+	</tbody>
+</table>
